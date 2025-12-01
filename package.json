@@ -29,7 +29,7 @@
     },
     "devDependencies": {
         "@react-three/drei": "^10.7.7",
-        "@react-three/fiber": "^9.4.0",
+        "@react-three/fiber": "^9.4.2",
         "@react-three/postprocessing": "^3.0.4",
         "@types/node": "^24.10.1",
         "@types/react": "^19.2.4",
@@ -43,11 +43,11 @@
         "eslint-plugin-react-hooks": "^7.0.1",
         "eslint-plugin-react-refresh": "^0.4.24",
         "leva": "^0.10.1",
-        "postprocessing": "6.38.0",
+        "postprocessing": "^6.38.0",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
-        "react-router-dom": "^7.9.5",
-        "three": "^0.181.1",
+        "react-router-dom": "^7.9.6",
+        "three": "^0.181.2",
         "tunnel-rat": "^0.1.2",
         "typescript": "^5.9.3",
         "vite": "^7.2.2",
@@ -83,5 +83,8 @@
         "type": "git",
         "url": "git+https://github.com/whatisjery/react-fluid-distortion"
     },
-    "homepage": "https://github.com/whatisjery/react-fluid-distortion#readme"
+    "homepage": "https://github.com/whatisjery/react-fluid-distortion#readme",
+    "dependencies": {
+        "@whatisjery/react-fluid-distortion": "^1.6.1"
+    }
 }

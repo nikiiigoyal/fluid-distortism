@@ -1,153 +1,153 @@
-import { Environment, MeshTransmissionMaterial } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { EffectComposer } from '@react-three/postprocessing';
-import { useRef } from 'react';
-import { Mesh } from 'three';
-import { useControls } from 'leva';
-import { DEFAULT_CONFIG, Fluid } from '@whatisjery/react-fluid-distortion';
+// import { Environment, MeshTransmissionMaterial } from '@react-three/drei';
+// import { useFrame } from '@react-three/fiber';
+// import { EffectComposer } from '@react-three/postprocessing';
+// import { useRef } from 'react';
+// import { Mesh } from 'three';
+// import { useControls } from 'leva';
+// import { DEFAULT_CONFIG, Fluid } from '@whatisjery/react-fluid-distortion';
 
-const Torus = () => {
-    const meshRef = useRef<Mesh>(null);
+// const Torus = () => {
+//     const meshRef = useRef<Mesh>(null);
 
-    useFrame(() => {
-        if (!meshRef.current) return;
+//     useFrame(() => {
+//         if (!meshRef.current) return;
 
-        meshRef.current.rotation.y += 0.01;
-        meshRef.current.rotation.x += 0.005;
-    });
-    return (
-        <>
-            <ambientLight intensity={10.1} />
-            <directionalLight position={[2, 20, 10]} />
-            <Environment preset='warehouse' />
+//         meshRef.current.rotation.y += 0.01;
+//         meshRef.current.rotation.x += 0.005;
+//     });
+//     return (
+//         <>
+//             <ambientLight intensity={10.1} />
+//             <directionalLight position={[2, 20, 10]} />
+//             <Environment preset='warehouse' />
 
-            <mesh position-z={-4} ref={meshRef}>
-                <torusGeometry attach='geometry' args={[2.8, 0.8, 100, 100]} />
+//             <mesh position-z={-4} ref={meshRef}>
+//                 <torusGeometry attach='geometry' args={[2.8, 0.8, 100, 100]} />
 
-                <MeshTransmissionMaterial
-                    transmission={1}
-                    samples={1}
-                    anisotropy={0}
-                    chromaticAberration={0}
-                />
-            </mesh>
-        </>
-    );
-};
+//                 <MeshTransmissionMaterial
+//                     transmission={1}
+//                     samples={1}
+//                     anisotropy={0}
+//                     chromaticAberration={0}
+//                 />
+//             </mesh>
+//         </>
+//     );
+// };
 
-const Example1 = () => {
-    const [config] = useControls('Settings', () => ({
-        intensity: {
-            value: DEFAULT_CONFIG.intensity,
-            min: 0.0,
-            max: 10,
-            step: 0.01,
-            label: 'intensity',
-        },
+// const Example1 = () => {
+//     const [config] = useControls('Settings', () => ({
+//         intensity: {
+//             value: DEFAULT_CONFIG.intensity,
+//             min: 0.0,
+//             max: 10,
+//             step: 0.01,
+//             label: 'intensity',
+//         },
 
-        force: {
-            value: DEFAULT_CONFIG.force,
-            min: 0,
-            max: 20,
-            step: 0.1,
-            label: 'force',
-        },
+//         force: {
+//             value: DEFAULT_CONFIG.force,
+//             min: 0,
+//             max: 20,
+//             step: 0.1,
+//             label: 'force',
+//         },
 
-        distortion: {
-            value: DEFAULT_CONFIG.distortion,
-            min: 0,
-            max: 2,
-            step: 0.01,
-            label: 'distortion',
-        },
+//         distortion: {
+//             value: DEFAULT_CONFIG.distortion,
+//             min: 0,
+//             max: 2,
+//             step: 0.01,
+//             label: 'distortion',
+//         },
 
-        curl: {
-            value: DEFAULT_CONFIG.curl,
-            min: 0,
-            max: 50,
-            step: 0.1,
-            label: 'curl',
-        },
+//         curl: {
+//             value: DEFAULT_CONFIG.curl,
+//             min: 0,
+//             max: 50,
+//             step: 0.1,
+//             label: 'curl',
+//         },
 
-        swirl: {
-            value: DEFAULT_CONFIG.swirl,
-            min: 0,
-            max: 20,
-            step: 1,
-            label: 'swirl',
-        },
+//         swirl: {
+//             value: DEFAULT_CONFIG.swirl,
+//             min: 0,
+//             max: 20,
+//             step: 1,
+//             label: 'swirl',
+//         },
 
-        fluidColor: {
-            value: DEFAULT_CONFIG.fluidColor,
-            label: 'fluid color',
-        },
+//         fluidColor: {
+//             value: DEFAULT_CONFIG.fluidColor,
+//             label: 'fluid color',
+//         },
 
-        backgroundColor: {
-            value: DEFAULT_CONFIG.backgroundColor,
-            label: 'background color',
-        },
+//         backgroundColor: {
+//             value: DEFAULT_CONFIG.backgroundColor,
+//             label: 'background color',
+//         },
 
-        blend: {
-            value: DEFAULT_CONFIG.blend,
-            min: 0.0,
-            max: 10,
-            step: 0.01,
-            label: 'blend',
-        },
+//         blend: {
+//             value: DEFAULT_CONFIG.blend,
+//             min: 0.0,
+//             max: 10,
+//             step: 0.01,
+//             label: 'blend',
+//         },
 
-        showBackground: {
-            value: DEFAULT_CONFIG.showBackground,
-            label: 'show background',
-        },
+//         showBackground: {
+//             value: DEFAULT_CONFIG.showBackground,
+//             label: 'show background',
+//         },
 
-        rainbow: {
-            value: true,
-            label: 'rainbow mode',
-        },
+//         rainbow: {
+//             value: true,
+//             label: 'rainbow mode',
+//         },
 
-        pressure: {
-            value: DEFAULT_CONFIG.pressure,
-            min: 0,
-            max: 1,
-            step: 0.01,
-            label: 'pressure reduction',
-        },
+//         pressure: {
+//             value: DEFAULT_CONFIG.pressure,
+//             min: 0,
+//             max: 1,
+//             step: 0.01,
+//             label: 'pressure reduction',
+//         },
 
-        densityDissipation: {
-            value: DEFAULT_CONFIG.densityDissipation,
-            min: 0,
-            max: 1,
-            step: 0.01,
-            label: 'density dissipation',
-        },
+//         densityDissipation: {
+//             value: DEFAULT_CONFIG.densityDissipation,
+//             min: 0,
+//             max: 1,
+//             step: 0.01,
+//             label: 'density dissipation',
+//         },
 
-        velocityDissipation: {
-            value: DEFAULT_CONFIG.velocityDissipation,
-            min: 0,
-            max: 1,
-            step: 0.01,
-            label: 'velocity dissipation',
-        },
+//         velocityDissipation: {
+//             value: DEFAULT_CONFIG.velocityDissipation,
+//             min: 0,
+//             max: 1,
+//             step: 0.01,
+//             label: 'velocity dissipation',
+//         },
 
-        radius: {
-            value: DEFAULT_CONFIG.radius,
-            min: 0.01,
-            max: 1,
-            step: 0.01,
-            label: 'radius',
-        },
-    }));
+//         radius: {
+//             value: DEFAULT_CONFIG.radius,
+//             min: 0.01,
+//             max: 1,
+//             step: 0.01,
+//             label: 'radius',
+//         },
+//     }));
 
-    return (
-        <>
+//     return (
+//         <>
            
-            <Torus />
+//             <Torus />
 
-            <EffectComposer>
-                <Fluid {...config} />
-            </EffectComposer>
-        </>
-    );
-};
+//             <EffectComposer>
+//                 <Fluid {...config} />
+//             </EffectComposer>
+//         </>
+//     );
+// };
 
-export default Example1;
+// export default Example1;
