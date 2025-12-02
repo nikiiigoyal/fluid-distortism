@@ -14,7 +14,7 @@ export default function App() {
         <ambientLight intensity={1} />
 
         {/* 2. The 3D Object (Background for the fluid) */}
-        <mesh position={[0, 0, -2]}>
+        <mesh position={[0, 0, -2]} rotation={[0,0,1]}>
           <torusGeometry args={[1.5, 0.6, 64, 64]} />
           <MeshTransmissionMaterial
             transmission={1}
