@@ -8,7 +8,7 @@ export default function App() {
     <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas style={{ background: '#000000' }} dpr={[1, 2]}>
         
-        {/* 1. Lighting to make the glass look good */}
+        
         <Environment preset="warehouse" />
         <directionalLight position={[2, 20, 10]} intensity={2} />
         <ambientLight intensity={1} />
